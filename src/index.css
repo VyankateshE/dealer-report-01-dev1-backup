@@ -1,0 +1,273 @@
+@import "tailwindcss";
+
+/* Thin scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px; /* For vertical scrollbar */
+  height: 6px; /* For horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light gray background */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b0b0b0; /* Gray thumb */
+  border-radius: 10px;
+}
+/* Hide browser's password reveal button */
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-caps-lock-indicator,
+input[type="password"]::-webkit-credentials-auto-fill-button {
+  display: none !important;
+  visibility: hidden;
+  pointer-events: none;
+}
+@import "tailwindcss";
+
+/* Your global overrides here */
+
+/* Fix Chrome/Edge autofill background for inputs */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px #f9fafb inset !important; /* match Tailwind bg-gray-50 */
+  -webkit-text-fill-color: #374151 !important; /* match Tailwind text-gray-700 */
+  transition: background-color 5000s ease-in-out 0s;
+}
+/* Hide browser's default password reveal icon */
+input::-ms-reveal,
+input::-ms-clear {
+  display: none !important;
+}
+.logout-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* lighter dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+}
+
+.logout-modal {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 6000;
+  max-width: 320px;
+  width: 100%;
+}
+/* Thin scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px; /* For vertical scrollbar */
+  height: 6px; /* For horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light gray background */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b0b0b0; /* Gray thumb */
+  border-radius: 10px;
+}
+.custom-max-width {
+  max-width: 87.5rem; /* 7.5 * 16px = 120px, 7.5xl would be approximately 87.5rem */
+}
+
+/* Timeline Styles - Matching Angular Version */
+/* Timeline Styles - Matching Angular Version */
+/* Timeline Styles - Matching Angular Version with Soft Pink/Red */
+.widget-timeline {
+  position: relative;
+  padding-left: 10px;
+}
+
+.timeline {
+  list-style: none;
+  padding: 20px 0 20px 0;
+  position: relative;
+  margin: 0;
+}
+
+.timeline:before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 10px;
+  width: 3px;
+  margin-left: 0;
+  background-color: #e9ecef;
+}
+
+.timeline > li {
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 40px;
+  list-style: none;
+}
+
+.timeline > li:before,
+.timeline > li:after {
+  content: " ";
+  display: table;
+}
+
+.timeline > li:after {
+  clear: both;
+}
+
+/* Timeline Badge (colored dot) - SOFT COLORS */
+.timeline-badge {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 50%;
+  z-index: 100;
+  border: 3px solid #fff;
+}
+
+.timeline-badge.primary {
+  background-color: #6eb9ff; /* Light blue */
+}
+
+.timeline-badge.success {
+  background-color: #7ed99c; /* Light green */
+}
+
+.timeline-badge.warning {
+  background-color: #ffd966; /* Light yellow */
+}
+
+.timeline-badge.danger {
+  background-color: #e74c3c; /* Soft red matching your image */
+}
+
+/* Timeline Panel (white card) */
+.timeline-panel {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 15px;
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  color: #6c757d;
+  transition: all 0.2s ease;
+}
+
+.timeline-panel:hover {
+  background-color: #f8f9fa;
+  border-color: #dee2e6;
+  text-decoration: none;
+  color: #6c757d;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+/* Ensure Bootstrap grid works inside timeline */
+.timeline-panel .row {
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
+.timeline-panel .row > [class*="col-"] {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 10px;
+}
+
+.timeline-panel .row > [class*="col-"]:last-child {
+  margin-bottom: 0;
+}
+
+/* Scrollbar Styling */
+.dz-scroll {
+  overflow-y: auto !important;
+  padding-right: 5px;
+}
+
+.dz-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dz-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.dz-scroll::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.dz-scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Alert Info Styling */
+.alert-info {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+  padding: 12px 20px;
+  border-radius: 4px;
+  margin-bottom: 0;
+}
+
+/* Text Muted */
+.text-muted {
+  color: #6c757d !important;
+}
+
+/* Badge Styling - SOFT COLORS */
+.badge {
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 3px;
+}
+
+.badge-success {
+  background-color: #7ed99c; /* Light green */
+  color: #fff;
+}
+
+.badge-danger {
+  background-color: #e74c3c; /* Soft red matching your image */
+  color: #fff;
+}
+
+.ms-1 {
+  margin-left: 4px !important;
+}
+
+/* Utility Classes */
+.d-flex {
+  display: flex !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
