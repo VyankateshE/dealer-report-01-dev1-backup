@@ -915,14 +915,143 @@ const [showUserTrendDateRange, setShowUserTrendDateRange] = useState(false);
 const [isLoadingTrendData, setIsLoadingTrendData] = useState(false);
 const [userTrendError, setUserTrendError] = useState(null);
 const [chartSeries, setChartSeries] = useState([]);
-const [chartOptions, setChartOptions] = useState({
-  chart: { type: "area", height: 300, toolbar: { show: true } },
-  stroke: { curve: "smooth", width: 2 },
-  xaxis: { categories: [] },
-  yaxis: { title: { text: "Number of Calls" } },
-  dataLabels: { enabled: false },
-  legend: { position: "top" },
-});
+// const [chartOptions, setChartOptions] = useState({
+//   chart: { type: "area", height: 300, toolbar: { show: true } },
+//   stroke: { curve: "smooth", width: 2 },
+//   xaxis: { categories: [] },
+//   yaxis: { title: { text: "Number of Calls" } },
+//   dataLabels: { enabled: false },
+//   legend: { position: "top" },
+// });
+
+
+  const [chartOptions, setChartOptions] = useState({
+    chart: {
+      type: "area",
+      height: "100%",
+      stacked: false, // Changed to false for line chart
+      toolbar: {
+        show: true,
+        tools: {
+          download: true,
+          selection: true,
+          zoom: true,
+          zoomin: true,
+          zoomout: true,
+          pan: true,
+          reset: true,
+        },
+      },
+      zoom: {
+        enabled: false,
+      },
+    },
+    stroke: {
+      curve: "smooth",
+      width: 2,
+    },
+    fill: {
+      type: "gradient",
+      gradient: {
+        opacityFrom: 0.6,
+        opacityTo: 0.2,
+        shadeIntensity: 1,
+        stops: [0, 90, 100],
+      },
+    },
+    markers: {
+      size: 4,
+      hover: {
+        size: 7,
+      },
+    },
+    xaxis: {
+      type: "category",
+      categories: [],
+      labels: {
+        rotate: -45,
+        rotateAlways: true,
+        trim: false,
+        hideOverlappingLabels: false,
+        style: {
+          fontSize: "10px",
+        },
+        offsetX: 8,
+        offsetY: 5,
+      },
+      axisBorder: {
+        show: true,
+      },
+      axisTicks: {
+        show: true,
+      },
+      title: {
+        text: "Date",
+        style: {
+          fontSize: "12px",
+          fontWeight: 600,
+        },
+        offsetY: 5,
+      },
+    },
+    yaxis: {
+      title: {
+        text: "Number of Calls",
+        style: {
+          fontSize: "12px",
+          fontWeight: 600,
+        },
+      },
+      min: 0,
+      forceNiceScale: true,
+      labels: {
+        formatter: function (val) {
+          return Math.floor(val) === val ? val : val.toFixed(1);
+        },
+      },
+    },
+    tooltip: {
+      shared: true,
+      intersect: false,
+      x: {
+        show: true,
+        format: "dd MMM yyyy",
+      },
+    },
+    colors: ["#3B82F6", "#10b981", "#f59e0b", "#8b5cf6", "#ef4444", "#ec4899"],
+    dataLabels: {
+      enabled: false,
+    },
+    grid: {
+      borderColor: "#e5e7eb",
+      strokeDashArray: 4,
+      padding: {
+        left: 35,
+        right: 20,
+        top: 10,
+        bottom: 30,
+      },
+    },
+    legend: {
+      position: "top",
+      horizontalAlign: "right",
+      fontSize: "11px",
+      offsetY: -13,
+      itemMargin: {
+        horizontal: 10,
+        vertical: 3,
+      },
+    },
+    noData: {
+      text: "Loading data...",
+      align: "center",
+      verticalAlign: "middle",
+      style: {
+        color: "#6B7280",
+        fontSize: "14px",
+      },
+    },
+  });
 
 
     // ✅ ADD: Effect to handle escape key and backdrop click
@@ -1617,7 +1746,7 @@ useEffect(() => {
           <div className="flex-1 flex flex-col border border-gray-200 rounded-lg bg-white shadow-sm p-4">
             <div className="mb-3 flex-shrink-0">
               <h3 className="text-base font-semibold text-gray-800">
-                Daily Call Distribution
+                Daily Call Distributions
               </h3>
               <p className="text-xs text-gray-500 mt-1">
                 Shows total calls, connected, outgoing, incoming,
